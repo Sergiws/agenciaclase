@@ -1,0 +1,18 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        .row
+            .col-md-5
+                img.img-fluid(src=`/img/destinos_${resultado.imagen}_ln.jpg`, alt="imagen viaje")
+            .col-md-7
+                h1 #{resultado.titulo}
+                p
+                    img(src='/img/icono_calendario.svg', width='20px')
+                    |  #{resultado.fecha_ida.toLocaleDateString(navigator.language)} - #{resultado.fecha_vuelta.toLocaleDateString(navigator.language)}
+                p
+                    img(src='/img/icono_disponibles.svg', width='20px')
+                    |  #{resultado.disponibles} Disponibles
+                p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                p Est expedita sunt, suscipit, nesciunt dolore velit temporibus distinctio facere rem minima quidem cumque totam adipisci blanditiis soluta architecto quia quaerat modi eaque maiores nemo nihil harum vero? Iste neque illum repudiandae placeat vero at a accusamus nihil quae ipsam ex, culpa quisquam nisi. Necessitatibus sequi eos voluptatum sunt excepturi earum accusantium molestiae corporis voluptatibus eius.
+                p Cum at nemo beatae quo, id nostrum dolor aut quis perspiciatis quia unde aperiam. Alias expedita id iusto, beatae hic nulla veniam veritatis, inventore architecto temporibus adipisci quibusdam distinctio. Explicabo ut magnam natus quis obcaecati nesciunt!

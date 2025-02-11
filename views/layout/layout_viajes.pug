@@ -1,0 +1,17 @@
+.row.proximos-viajes
+            each viaje in viajes
+                .col-md-5.col-lg-4.mb-4
+                    .card.shadow
+                        img.card-img-top(src=`/img/destinos_${viaje.imagen}.jpg`)
+                        .card-body
+                            h2=viaje.titulo
+                            
+                            p
+                                img(src='/img/icono_calendario.svg', width='20px')
+                                |  #{viaje.fecha_ida.toLocaleDateString(navigator.language)} - #{viaje.fecha_vuelta.toLocaleDateString(navigator.language)}
+                            p
+                                img(src='/img/icono_disponibles.svg', width='20px')
+                                |  #{viaje.disponibles} Disponibles
+                            
+                            p=viaje.descripcion.substring(0,100)+'...'
+                            a.btn.btn-success.btn-block(href=`viajes/${viaje.slug}`) Más Información

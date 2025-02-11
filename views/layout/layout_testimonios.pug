@@ -1,0 +1,12 @@
+if(testimonios)
+    p.text-center Lee sobre nuestros clientes y sus experiencias
+    .row.testimonios.justify-content-center.flex-wrap
+        each testimonio in testimonios 
+            .col-md-6.col-lg-4.mb-4 
+                .card.h-100.shadow
+                    .card-body 
+                        blockquote.blockquote 
+                        .mb-0 
+                            | #{testimonio.mensaje}
+                        .blockquote-footer 
+                            | #{testimonio.nombre}

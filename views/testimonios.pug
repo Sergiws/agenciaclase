@@ -1,0 +1,30 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        include ./layout/layout_testimonios
+
+        .row
+            .col-md-12
+                h2.d-block.w-100.text-center Agregar un Testimonio
+
+                if(errores)
+                    each error in errores
+                        .alert.col.alert-danger.text-center #{error.mensaje}
+
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="/testimonios", method="POST")
+                        .form-group
+                            label(style="font-weight:bold;", for="nombre") Nombre
+                            input#nombre.form-control(type="text", placeholder="Tu nombre", name="nombre", maxlength=100, required, value=nombre)
+                        .form-group
+                            label(style="font-weight:bold;", for="correo") Correo Electrónico
+                            input#correo.form-control(type="email", placeholder="Tu correo electrónico", name="correo", maxlength=100, required, value=correo)
+                        .form-group
+                            label(style="font-weight:bold;", for="mensaje") Mensaje
+                            textarea#mensaje.form-control(placeholder="Tu mensaje", name="mensaje", rows=3, maxlength=500, required)=mensaje
+                        
+                        input.btn.btn-success.btn-block(type="submit")
