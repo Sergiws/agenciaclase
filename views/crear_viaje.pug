@@ -1,0 +1,50 @@
+extends ./layout/index
+
+block contenido
+    
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        include ./layout/layout_confirmacion
+        include ./layout/layout_errores
+
+        .row.justify-content-center.col
+            .col-md-8
+                form(action="/crear_viaje", method="POST")
+                    .form-group
+                        label(style="font-weight:bold;", for="titulo") Título
+                        input#titulo.form-control(type="text", placeholder="Título del viaje", name="titulo", maxlength=255, required,
+                        value=titulo||"")
+                    .form-group
+                        label(style="font-weight:bold;", for="precio") Precio (€)
+                        input#precio.form-control(type="text", placeholder="Precio del viaje", name="precio", maxlength=255, required,
+                        value=precio||"")
+                    .form-group
+                        label(style="font-weight:bold;", for="fecha_ida") Fecha de ida
+                        input#fecha_ida.form-control(type="date", name="fecha_ida", required)
+                    .form-group
+                        label(style="font-weight:bold;", for="fecha_vuelta") Fecha de vuelta
+                        input#fecha_vuelta.form-control(type="date", name="fecha_vuelta", required)
+                    .form-group
+                        label(style="font-weight:bold;", for="descripcion") Descripción
+                        textarea#descripcion.form-control(placeholder="Descripción del viaje", name="descripcion", rows=20, maxlength=1000,
+                        required)=descripcion||""
+                    .form-group
+                        label(style="font-weight:bold;", for="disponibles") Plazas disponibles
+                        input#disponibles.form-control(type="number", placeholder="Número de plazas", name="disponibles", required,
+                        value=disponibles||"")
+                    .form-group
+                        label(style="font-weight:bold;", for="slug") Slug
+                        input#slug.form-control(type="text", placeholder="el_slug_del_viaje (sin espacios)", name="slug", maxlength=20,
+                        pattern="[A-Za-z0-9_]*", required, value=slug||"")
+                    
+                    .form-group
+                        label(style="font-weight:bold;", for="imagen") Imagen
+                        select#imagen.custom-select(name="imagen")
+                            option(selected, value="default") default
+                            each resultado in resultados
+                                option(value=resultado.imagen) #{resultado.nombre}
+                    
+                    .row                        
+                        input.btn.btn-success.btn-block(type="submit", value="Crear Viaje")
+        

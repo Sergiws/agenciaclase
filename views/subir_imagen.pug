@@ -1,0 +1,48 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+        h1 Subir imágenes
+
+        include ./layout/layout_confirmacion
+        include ./layout/layout_errores
+
+        .row.justify-content-center.col
+            .col-md-8
+                form(action="/subir_imagen", method="POST", enctype="multipart/form-data", onsubmit="return validarFormulario()")
+                    .form-group
+                        label(for="imagen", style="font-weight:bold;") Imagen 
+                            span.text-secondary (recomendado 800px x 450px)
+                        input#imagen.form-control-file(type="file", name="imagen", accept="image/jpeg")
+
+                    .form-group
+                        label(for="imagen_ln", style="font-weight:bold;") Imagen grande 
+                            span.text-secondary (recomendado 542px x 800px)
+                        input#imagen_ln.form-control-file(type="file", name="imagen_ln", accept="image/jpeg")
+
+                    .form-group
+                        label(for="nombre", style="font-weight:bold;") Nombre de referencia para las imágenes
+                        input#nombre.form-control(type="text", placeholder="nombre_imagen (sin espacios)", name="nombre",
+                        maxlength=20, pattern="[A-Za-z0-9_]*", required)
+
+                    input.btn.btn-success.btn-block(type="submit", value="Subir imágenes")
+
+    script.
+        function validarFormulario() {
+            const imagen = document.getElementById('imagen').files[0];
+            const imagenLn = document.getElementById('imagen_ln').files[0];
+
+            if (!imagen || !imagenLn) {
+                alert("Debes seleccionar ambas imágenes.");
+                return false;
+            }
+
+            const allowedType = 'image/jpeg';
+            if (imagen.type !== allowedType || imagenLn.type !== allowedType) {
+                alert("Solo se permiten imágenes en formato JPG.");
+                return false;
+            }
+
+            return true;
+        }

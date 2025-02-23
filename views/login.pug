@@ -1,0 +1,19 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        include ./layout/layout_errores
+
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="/login", method="POST")
+                        .form-group
+                            label(style="font-weight:bold;", for="correo") Correo Electrónico
+                            input#correo.form-control(type="email", placeholder="Email de administrador", name="correo", maxlength=100, required, value=correo)
+                        .form-group
+                            label(style="font-weight:bold;", for="password") Contraseña
+                            input#password.form-control(type="password" placeholder="Tu contraseña", name="password", maxlength=100, required)
+                        
+                        input.btn.btn-success.btn-block(type="submit")

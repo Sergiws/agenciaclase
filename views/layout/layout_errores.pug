@@ -1,0 +1,5 @@
+.row
+    .col-md-12
+        if(errores)
+            each error in errores
+                .alert.col.alert-danger.text-center #{error.mensaje}

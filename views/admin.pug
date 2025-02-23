@@ -1,0 +1,15 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+        
+        .listado-iconos.row.text-center.mb-5
+            a.col-md.border.btn.btn-light.pt-4(href="/crear_viaje")
+                img.img-fluid.mb-4(src="img/icono_crear.svg", alt="Icono crear")
+                h2.mb-4 Crear un viaje
+            a.col-md.border.btn.btn-light.pt-4(href="/subir_imagen")
+                img.img-fluid.mb-4(src="img/icono_imagen.svg", alt="Icono imagen")
+                h2.mb-4 Subir una imagen
+
+        a.btn.btn-success.btn-block(href="/logout") Logout

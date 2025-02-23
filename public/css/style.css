@@ -20,12 +20,14 @@ h3 {
     font-size: 3rem;
 }
 
-.btn-success {
-    background-color: #DC135F;
-    border-color: #DC135F;
+.btn{
     padding: .8rem 0;
     text-transform: uppercase;
     border-radius: .8rem;
+}
+.btn-success {
+    background-color: #DC135F;
+    border-color: #DC135F;
 }
 .btn-success:hover {
     background-color: rgb(184, 5, 73);
@@ -92,9 +94,9 @@ footer .nav a,
     font-size: 1.6rem;
     color: black;
 }
-.listado-iconos {
+/* .listado-iconos {
     background-color: rgb(245, 245, 245);
-}
+} */
 .listado-iconos img {
     height: 100px;
 }
